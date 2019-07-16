@@ -13,6 +13,11 @@ else               -- if(!true) return console.log('false')
                       else { console.log('true') };
 else if            -- if(conditional) return console.log('value')
                       else if(conditional) return console.log('other value')
-                      else return console.log('last value')
+                      else return console.log('last value');
 ternary operator   -- 
 switch
+
+<!-- Javascript logical operators -->
+&&    -- if(value === true && value !== false) return console.log('and operator');
+||    -- if(value === true || value === false) return console.log('or operator');
+!     -- if(value !== false) return console.log('not operator');
