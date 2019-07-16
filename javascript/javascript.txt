@@ -27,3 +27,10 @@ switch
 &&    -- if(value === true && value !== false) return console.log('and operator');
 ||    -- if(value === true || value === false) return console.log('or operator');
 !     -- if(value !== false) return console.log('not operator');
+
+
+<!-- Javascript function -->
+function expresion    -- const func = function name() { ... }
+function declaration  -- function name() { ... }
+return                -- const func = (a, b) => { return a * b }
+const func = () => { ... }
