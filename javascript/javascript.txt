@@ -1,0 +1,18 @@
+<!-- Javascript Types -->
+Number          -- 10;
+String          --"Hello World!";
+Boolean         -- true false;
+undefined       -- undefined;
+null            -- null;
+<!-- Symbol -->
+Object          -- { key: 2, key: "value" }
+
+<!-- Javascript conditionals -->
+if                 -- if(true) return console.log('true');
+else               -- if(!true) return console.log('false') 
+                      else { console.log('true') };
+else if            -- if(conditional) return console.log('value')
+                      else if(conditional) return console.log('other value')
+                      else return console.log('last value')
+ternary operator   -- 
+switch
