@@ -1,0 +1,11 @@
+{
+  "name": "smart_brain",
+  "version": "1.0.0",
+  "description": "face recognition brain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Savin Raul Calin",
+  "license": "ISC"
+}

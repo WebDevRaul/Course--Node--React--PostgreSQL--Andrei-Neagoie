@@ -34,3 +34,7 @@ function expresion    -- const func = function name() { ... }
 function declaration  -- function name() { ... }
 return                -- const func = (a, b) => { return a * b }
 const func = () => { ... }
+
+<!-- Javascript data structures -->
+Array   -- ['Hello', 2 , { car: 'BMW' }]
+Object  -- { car: 'AUDI', country: 'Japan' }
