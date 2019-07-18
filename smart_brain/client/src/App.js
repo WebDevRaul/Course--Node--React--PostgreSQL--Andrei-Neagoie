@@ -44,7 +44,14 @@ class App extends Component {
       imageURL: '',
       box: {},
       route: 'sign-in',
-      isAuth: false
+      isAuth: false,
+      user: {
+        email: '',
+        name: '',
+        entries: 0,
+        joined: '',
+        id: ''
+      }
     }
   }
   
@@ -91,7 +98,13 @@ class App extends Component {
     this.setState({ route })
   }
 
+  updateUser = user => {
+    const { id, name, email, entries, joined } = user
+    this.setState({user: { id, name, email, entries, joined }})
+  }
+
   render() {
+    console.log(this.state.user)
     return (
       <div className="App">
         <Particles className='particles' params={particlesOptions} />
@@ -107,7 +120,7 @@ class App extends Component {
           : (
             this.state.route === 'sign-in' 
             ? <SignIn onRouteChange={this.onRouteChange}/> 
-            : <Register onRouteChange={this.onRouteChange} />
+            : <Register onRouteChange={this.onRouteChange} updateUser={this.updateUser} />
             )
         }
       </div>
