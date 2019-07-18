@@ -39,8 +39,24 @@ class App extends Component {
     super();
     this.state = {
       input: '',
-      imageURL: ''
+      imageURL: '',
+      box: {}
     }
+  }
+  calculateFaceLocation = data => {
+    const image = document.querySelector('#input-image');
+    const width = Number(image.width);
+    const height = Number(image.height);
+    const box = {
+      left_col: data.left_col * width,
+      top_row: data.top_row * height,
+      right_col: width - (data.right_col * width),
+      bottom_row: height - (data.bottom_row * height),
+    }
+
+    console.log(box);
+
+    this.setState({ box })
   }
 
   onChange = e => {
@@ -57,7 +73,7 @@ class App extends Component {
     )
     .then(res => {
       const data = res['outputs'][0]['data']['regions'][0]['region_info']['bounding_box'];
-      console.log(data);
+      this.calculateFaceLocation(data);
     })
     .catch(err => console.log(err))
   }
@@ -69,7 +85,7 @@ class App extends Component {
         <Logo />
         <Rank />
         <ImageLinkForm onChange={this.onChange} onSubmit={this.onSubmit} />
-        <FaceRecognition imageURL={this.state.imageURL} />
+        <FaceRecognition imageURL={this.state.imageURL} box={this.state.box} />
       </div>
     );
   }
