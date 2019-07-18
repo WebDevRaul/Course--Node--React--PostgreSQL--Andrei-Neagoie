@@ -14,6 +14,7 @@ import ImageLinkForm from './components/image_link_form/Image_Link_Form';
 import Rank from './components/rank/Rank';
 import FaceRecognition from './components/face_recognition/Face_recognition';
 import SignIn from './components/authentication/sign_in/Sign_In';
+import Register from './components/authentication/register/register';
 
 // Clarifai
 import Clarifai from 'clarifai';
@@ -42,7 +43,8 @@ class App extends Component {
       input: '',
       imageURL: '',
       box: {},
-      route: 'sign-in'
+      route: 'sign-in',
+      isAuth: false
     }
   }
   calculateFaceLocation = data => {
@@ -79,6 +81,11 @@ class App extends Component {
   }
 
   onRouteChange = route => {
+    if (route === 'home') {
+      this.setState({ isAuth: true })
+    } else if(route === 'sign-in' || route === 'register') {
+      this.setState({ isAuth: false })
+    }
     this.setState({ route })
   }
 
@@ -86,16 +93,20 @@ class App extends Component {
     return (
       <div className="App">
         <Particles className='particles' params={particlesOptions} />
-        <Navigation onRouteChange={this.onRouteChange} />
+        <Navigation onRouteChange={this.onRouteChange} isAuth={this.state.isAuth} />
         { 
-          this.state.route === 'sign-in' 
-          ? <SignIn onRouteChange={this.onRouteChange} /> 
-          : <div>
+          this.state.route === 'home' 
+          ? <div>
               <Logo />
               <Rank />
               <ImageLinkForm onChange={this.onChange} onSubmit={this.onSubmit} />
               <FaceRecognition imageURL={this.state.imageURL} box={this.state.box} />
             </div>
+          : (
+            this.state.route === 'sign-in' 
+            ? <SignIn onRouteChange={this.onRouteChange}/> 
+            : <Register onRouteChange={this.onRouteChange} />
+            )
         }
       </div>
     );
