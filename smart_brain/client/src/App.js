@@ -47,6 +47,8 @@ class App extends Component {
       isAuth: false
     }
   }
+  
+
   calculateFaceLocation = data => {
     const image = document.querySelector('#input-image');
     const width = Number(image.width);
